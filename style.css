@@ -1,0 +1,707 @@
+/* ==========================
+   NeoAuth | BuildUI
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background:#0f172a;
+}
+
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    position:relative;
+}
+
+/* ==========================
+        Animated Background
+========================== */
+
+.background{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.background span{
+    position:absolute;
+    display:block;
+    border-radius:50%;
+    filter:blur(60px);
+    animation:float 14s linear infinite;
+}
+
+.background span:nth-child(1){
+    width:260px;
+    height:260px;
+    background:#6366f1;
+    top:5%;
+    left:8%;
+}
+
+.background span:nth-child(2){
+    width:220px;
+    height:220px;
+    background:#06b6d4;
+    right:8%;
+    bottom:8%;
+    animation-delay:2s;
+}
+
+.background span:nth-child(3){
+    width:180px;
+    height:180px;
+    background:#8b5cf6;
+    bottom:25%;
+    left:25%;
+    animation-delay:5s;
+}
+
+.background span:nth-child(4){
+    width:160px;
+    height:160px;
+    background:#22c55e;
+    top:20%;
+    right:25%;
+    animation-delay:8s;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-60px) scale(1.15);
+    }
+
+    100%{
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+/* ==========================
+            Card
+========================== */
+
+.card{
+
+    width:1000px;
+    max-width:100%;
+
+    min-height:650px;
+
+    display:flex;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+.left{
+
+    width:40%;
+
+    background:linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+    );
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:60px;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:35px;
+
+}
+
+.logo i{
+
+    font-size:35px;
+
+}
+
+.logo h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.left h1{
+
+    font-size:40px;
+
+    margin-bottom:18px;
+
+}
+
+.left p{
+
+    line-height:1.7;
+
+    opacity:.9;
+
+    margin-bottom:35px;
+
+}
+
+.left button{
+
+    width:210px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:white;
+
+    color:#6366f1;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.left button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
+
+}
+/* ==========================
+            Right Side
+========================== */
+
+.right{
+
+    width:60%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.forms{
+
+    width:100%;
+
+    max-width:420px;
+
+    position:relative;
+
+}
+
+.login,
+.register{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    transition:.45s ease;
+
+}
+
+.register{
+
+    display:none;
+
+}
+
+.login.active{
+
+    display:flex;
+
+}
+
+.register.active{
+
+    display:flex;
+
+}
+
+.forms h2{
+
+    font-size:34px;
+
+    color:#fff;
+
+    margin-bottom:10px;
+
+    text-align:center;
+
+}
+
+.input-box{
+
+    width:100%;
+
+    height:58px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    transition:.3s;
+
+}
+
+.input-box:hover{
+
+    border-color:#6366f1;
+
+}
+
+.input-box:focus-within{
+
+    border-color:#06b6d4;
+
+    box-shadow:0 0 15px rgba(6,182,212,.35);
+
+}
+
+.input-box i{
+
+    color:#cbd5e1;
+
+    font-size:18px;
+
+    margin-right:12px;
+
+}
+
+.input-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:#fff;
+
+    font-size:15px;
+
+}
+
+.input-box input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+.show-password{
+
+    cursor:pointer;
+
+    color:#cbd5e1;
+
+    transition:.3s;
+
+}
+
+.show-password:hover{
+
+    color:#fff;
+
+}
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:14px;
+
+    color:#cbd5e1;
+
+}
+
+.options a{
+
+    color:#8b5cf6;
+
+    text-decoration:none;
+
+}
+
+.options a:hover{
+
+    color:#fff;
+
+}
+
+.agree{
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+}
+
+.agree input{
+
+    margin-right:8px;
+
+}
+
+.submit{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.submit:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(99,102,241,.4);
+
+}
+
+.social{
+
+    margin-top:12px;
+
+    text-align:center;
+
+}
+
+.social p{
+
+    color:#cbd5e1;
+
+    margin-bottom:18px;
+
+}
+
+.icons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:16px;
+
+}
+
+.icons a{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.icons a:hover{
+
+    background:#6366f1;
+
+    transform:translateY(-5px);
+
+}
+/* ==========================
+        Animation
+========================== */
+
+.login,
+.register{
+    animation:fade .45s ease;
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================
+        Scrollbar
+========================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#6366f1;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0f172a;
+}
+
+/* ==========================
+        Selection
+========================== */
+
+::selection{
+    background:#6366f1;
+    color:#fff;
+}
+
+/* ==========================
+        Responsive
+========================== */
+
+@media(max-width:1000px){
+
+    .card{
+
+        width:95%;
+
+    }
+
+}
+
+@media(max-width:850px){
+
+    .card{
+
+        flex-direction:column;
+
+        min-height:auto;
+
+    }
+
+    .left{
+
+        width:100%;
+
+        padding:40px;
+
+    }
+
+    .right{
+
+        width:100%;
+
+        padding:40px 25px;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .left h1{
+
+        font-size:30px;
+
+    }
+
+    .logo h2{
+
+        font-size:22px;
+
+    }
+
+    .forms h2{
+
+        font-size:28px;
+
+    }
+
+    .left{
+
+        padding:30px;
+
+    }
+
+    .right{
+
+        padding:30px 18px;
+
+    }
+
+    .left button{
+
+        width:100%;
+
+    }
+
+}
+
+/* ==========================
+        Glass Effect
+========================== */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+    120deg,
+    rgba(255,255,255,.08),
+    transparent,
+    rgba(255,255,255,.05));
+
+    pointer-events:none;
+
+}
+
+/* ==========================
+        Smooth Transition
+========================== */
+
+button,
+input,
+a,
+.input-box,
+.icons a{
+
+    transition:.3s;
+
+}
+
+.login{
+    display:none;
+}
+
+.login.active{
+    display:flex;
+}
+
+.register{
+    display:none;
+}
+
+.register.active{
+    display:flex;
+}
