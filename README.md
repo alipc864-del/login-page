@@ -23,3 +23,7 @@ A modern and responsive login and registration page built with:
 - `index.html` — Page structure
 - `style.css` — Styling and animations
 - `script.js` — Interactive functionality
+
+
+
+`index.html`
